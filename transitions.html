@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<div style="width: 100%;">
+		<div style="position: fixed;">
+			<h2 style="float: left;">correct:</h2>
+			<h2 style="float: left; color: white;">----</h2>
+			<h2 style="float: left;" id="cpoint"></h2>
+			<h2></h2>
+			<h2 style="float: left;">wrong:</h2>
+			<h2 style="float: left; color: white;">----</h2>
+			<h2 style="float: left;" id="wpoint"></h2>
+		</div>
+		<div style="width: 100%; height: 260px; float: left;">
+			<center><h1 id="questionid" style="color: black; font-size: 50px;">WORD</h1></center>
+		</div>
+		<div style="width: 33%; height: 200px; float: left;">
+			<center><a href="#" style="text-decoration: none;"><h1 style="color: limegreen; font-size: 40px" onclick="checkcontuniation()">CONTUNIATION</h1></a></center>
+		</div>
+		<div style="width: 33%; height: 200px; float: left;">
+			<center><a href="#" style="text-decoration: none;"><h1 style="color: limegreen; font-size: 40px" onclick="checkcausation()">CAUSATION</h1></a></center>
+		</div>
+		<div style="width: 33%; height: 200px; float: left;">
+			<center><a href="#" style="text-decoration: none;"><h1 style="color: limegreen; font-size: 40px" onclick="checkcontradicton()">CONTRADICTION</h1></a></center>
+		</div>
+		<div id="nextid"></div>
+	</div>
+</body>
+<script type="text/javascript">
+	var question = 0;
+	var nextVar = '<div style="width:100%; height:150px;float: left;" onclick="getRandomInt();emptynext()"><center><a href="#" style="text-decoration: none;"><h1 style="color:orange;">NEXT</h1></a></center></div>';
+	var wrongVar = '<div style="width:100%; height:150px;float: left;"><center><h1 style="color:red;">WRONG</h1></center></div>';
+	var cpointVar = 0;
+	var wpointVar = 0;
+	let word0 = 'IN ADDITION';
+	let word1 = 'FURTHERMORE';
+	let word2 = 'MOREOVER';
+	let word3 = 'ALSO';
+	let word4 = 'AND';
+
+	let word5 = 'FOR EXAMPLE';
+	let word6 = 'FOR INSTANCE';
+	let word7 = 'SPECIFICALLY';
+
+	let word8 = 'EFFECTIVELY';
+	let word9 = 'ESSENTIALLY';
+	let word10 = 'THAT IS';
+	let word11 = 'IN OTHER WORDS';
+
+	let word12 = 'IN FACT';
+	let word13 = 'INDEED';
+
+	let word14 = 'LIKEWISE';
+	let word15 = 'SIMILARLY';
+
+	let word16 = 'PREVIOUSLY';
+	let word17 = 'SUBSEQUENTLY';
+	let word18 = 'FINALLY';
+	let word19 = 'WHILE';
+
+	let word20 = 'ACCORDINGLY';
+	let word21 = 'AS A RESULT';
+	let word22 = 'AS SUCH';
+	let word23 = 'BECAUSE';
+	let word24 = 'CONSEQUENTLY';
+	let word25 = 'FOR';
+	let word26 = 'HENCE';
+	let word27 = 'SINCE';
+	let word28 = 'SO';
+	let word29 = 'THUS';
+	let word30 = 'THEREFORE';
+	let word31 = 'TO THIS END';
+
+	let word32 = 'ALTERNATELY';
+	let word33 = 'ALTERNATIVELY';
+	let word34 = '(AL)THOUGH';
+	let word35 = 'BUT';
+	let word36 = 'CONVERSELY';
+	let word37 = 'DESPITE / IN SPITE OF';
+	let word38 = 'EVEN SO';
+	let word39 = 'EVEN THOUGH';
+	let word40 = 'HOWEVER';
+	let word41 = 'IN ANY CASE';
+	let word42 = 'IN CONTRAST';
+	let word43 = 'INSTEAD';
+	let word44 = 'MEANWHILE';
+	let word45 = 'NEVERTHELESS';
+	let word46 = 'NONETHELESS';
+	let word47 = 'ON THE CONTRARY';
+	let word48 = 'ON THE OTHER HAND';
+	let word49 = 'OTHERWISE';
+	let word50 = 'RATHER';
+	let word51 = 'REGARDLESS';
+	let word52 = 'STILL';
+	let word53 = 'WHEREAS';
+	let word54 = 'YET';
+
+	let trueanswer = 0;
+	function getRandomInt(){
+  	question = Math.floor(Math.random() * 55);
+  	console.log(question);
+  	if (question === 0){
+document.getElementById("questionid").innerHTML = word0;}
+	if (question === 1){
+document.getElementById("questionid").innerHTML = word1;}
+	if (question === 2){
+document.getElementById("questionid").innerHTML = word2;}
+	if (question === 3){
+document.getElementById("questionid").innerHTML = word3;}
+	if (question === 4){
+document.getElementById("questionid").innerHTML = word4;}
+	if (question === 5){
+document.getElementById("questionid").innerHTML = word5;}
+	if (question === 6){
+document.getElementById("questionid").innerHTML = word6;}
+	if (question === 7){
+document.getElementById("questionid").innerHTML = word7;}
+	if (question === 8){
+document.getElementById("questionid").innerHTML = word8;}
+	if (question === 9){
+document.getElementById("questionid").innerHTML = word9;}
+	if (question === 10){
+document.getElementById("questionid").innerHTML = word10;}
+	if (question === 11){
+document.getElementById("questionid").innerHTML = word11;}
+	if (question === 12){
+document.getElementById("questionid").innerHTML = word12;}
+	if (question === 13){
+document.getElementById("questionid").innerHTML = word13;}
+	if (question === 14){
+document.getElementById("questionid").innerHTML = word14;}
+	if (question === 15){
+document.getElementById("questionid").innerHTML = word15;}
+	if (question === 16){
+document.getElementById("questionid").innerHTML = word16;}
+	if (question === 17){
+document.getElementById("questionid").innerHTML = word17;}
+	if (question === 18){
+document.getElementById("questionid").innerHTML = word18;}
+	if (question === 19){
+document.getElementById("questionid").innerHTML = word19;}
+	if (question === 20){
+document.getElementById("questionid").innerHTML = word20;}
+	if (question === 21){
+document.getElementById("questionid").innerHTML = word21;}
+	if (question === 22){
+document.getElementById("questionid").innerHTML = word22;}
+	if (question === 23){
+document.getElementById("questionid").innerHTML = word23;}
+	if (question === 24){
+document.getElementById("questionid").innerHTML = word24;}
+	if (question === 25){
+document.getElementById("questionid").innerHTML = word25;}
+	if (question === 26){
+document.getElementById("questionid").innerHTML = word26;}
+	if (question === 27){
+document.getElementById("questionid").innerHTML = word27;}
+	if (question === 28){
+document.getElementById("questionid").innerHTML = word28;}
+	if (question === 29){
+document.getElementById("questionid").innerHTML = word29;}
+	if (question === 30){
+document.getElementById("questionid").innerHTML = word30;}
+	if (question === 31){
+document.getElementById("questionid").innerHTML = word31;}
+	if (question === 32){
+document.getElementById("questionid").innerHTML = word32;}
+	if (question === 33){
+document.getElementById("questionid").innerHTML = word33;}
+	if (question === 34){
+document.getElementById("questionid").innerHTML = word34;}
+	if (question === 35){
+document.getElementById("questionid").innerHTML = word35;}
+	if (question === 36){
+document.getElementById("questionid").innerHTML = word36;}
+	if (question === 37){
+document.getElementById("questionid").innerHTML = word37;}
+	if (question === 38){
+document.getElementById("questionid").innerHTML = word38;}
+	if (question === 39){
+document.getElementById("questionid").innerHTML = word39;}
+	if (question === 40){
+document.getElementById("questionid").innerHTML = word40;}
+	if (question === 41){
+document.getElementById("questionid").innerHTML = word41;}
+	if (question === 42){
+document.getElementById("questionid").innerHTML = word42;}
+	if (question === 43){
+document.getElementById("questionid").innerHTML = word43;}
+	if (question === 44){
+document.getElementById("questionid").innerHTML = word44;}
+	if (question === 45){
+document.getElementById("questionid").innerHTML = word45;}
+	if (question === 46){
+document.getElementById("questionid").innerHTML = word46;}
+	if (question === 47){
+document.getElementById("questionid").innerHTML = word47;}
+	if (question === 48){
+document.getElementById("questionid").innerHTML = word48;}
+	if (question === 49){
+document.getElementById("questionid").innerHTML = word49;}
+	if (question === 50){
+document.getElementById("questionid").innerHTML = word50;}
+	if (question === 51){
+document.getElementById("questionid").innerHTML = word51;}
+	if (question === 52){
+document.getElementById("questionid").innerHTML = word52;}
+	if (question === 53){
+document.getElementById("questionid").innerHTML = word53;}
+	if (question === 54){
+document.getElementById("questionid").innerHTML = word54;}
+	document.getElementById("wpoint").innerHTML = wpointVar;
+	document.getElementById("cpoint").innerHTML = cpointVar;
+}
+function checkcontuniation(){
+		if (question <= 19){
+			document.getElementById("nextid").innerHTML = nextVar;
+			cpointVar += 1;
+		}
+		else {
+			document.getElementById("nextid").innerHTML = wrongVar;
+			wpointVar += 1;
+		}
+		document.getElementById("wpoint").innerHTML = wpointVar;
+		document.getElementById("cpoint").innerHTML = cpointVar;
+}
+function checkcausation(){
+		if (question <= 31 & question >= 20){
+			document.getElementById("nextid").innerHTML = nextVar;
+			cpointVar += 1;
+		}
+		else {
+			document.getElementById("nextid").innerHTML = wrongVar;
+			wpointVar += 1;
+		}
+		document.getElementById("wpoint").innerHTML = wpointVar;
+		document.getElementById("cpoint").innerHTML = cpointVar;
+}
+function checkcontradicton(){
+		if (question <= 54 & question >= 32){
+			document.getElementById("nextid").innerHTML = nextVar;
+			cpointVar += 1;
+		}
+		else if (question == 19){
+			document.getElementById("nextid").innerHTML = nextVar;
+			cpointVar += 1;
+		}
+		else {
+			document.getElementById("nextid").innerHTML = wrongVar;
+			wpointVar += 1;
+		}
+		document.getElementById("wpoint").innerHTML = wpointVar;
+		document.getElementById("cpoint").innerHTML = cpointVar;
+}
+
+	function emptynext(){document.getElementById("nextid").innerHTML = '';}
+	getRandomInt();
+</script>
+</html>
